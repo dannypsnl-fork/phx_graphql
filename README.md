@@ -1,19 +1,40 @@
 # PhxGraphql
 
-To start your Phoenix server:
+Run `mix phx.server` and visit `http://localhost:4000/graphiql` to play with GraphQL. The following GraphQL script would be useful.
 
-  * Install dependencies with `mix deps.get`
-  * Create and migrate your database with `mix ecto.setup`
-  * Start Phoenix endpoint with `mix phx.server`
+```
+mutation Add {
+  userProfile: createUserProfile(
+    name: "name",
+  ) {
+  	id
+    name
+  }
+}
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+mutation Update {
+  profile: updateUserProfile(
+    id: 6,
+  	name: "ntest"
+  ) {
+    id
+	  name
+  }
+}
 
-Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
+mutation Delete {
+  profile: deleteUserProfile(
+    id: 5,
+  ) {
+    id
+    name
+  }
+}
 
-## Learn more
-
-  * Official website: https://www.phoenixframework.org/
-  * Guides: https://hexdocs.pm/phoenix/overview.html
-  * Docs: https://hexdocs.pm/phoenix
-  * Forum: https://elixirforum.com/c/phoenix-forum
-  * Source: https://github.com/phoenixframework/phoenix
+query List {
+  userProfiles {
+    id
+    name
+  }
+}
+```
