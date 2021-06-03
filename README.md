@@ -2,7 +2,7 @@
 
 Run `mix phx.server` and visit `http://localhost:4000/graphiql` to play with GraphQL. The following GraphQL script would be useful.
 
-```
+```graphql
 mutation Add {
   userProfile: createUserProfile(
     name: "name",
